@@ -1,27 +1,37 @@
-let color = 0; // The color of the next stone to be placed (0 indicates black, 1 indicates white)
-let rows = document.getElementsByTagName('tr');
+let color = 0; // 0 represents black, 1 represents white
 let intersections = document.getElementsByTagName('td');
-console.log("rows", rows);
-console.log("intersections", intersections);
 
 for (const intersection of intersections) {
+    let isStarPoint = false;
+    if (intersection.innerHTML === 'o') {
+        isStarPoint = true;
+    }
+
     intersection.addEventListener("click", () => {
-        // Place stone
+        if (intersection.classList.length === 0) { // Case where intersection is empty
+            intersection.innerHTML = ' ';
+            if (color) {
+                intersection.classList.toggle('white-stone');
+                color--;
+            } else {
+                intersection.classList.toggle('black-stone');
+                color++;
+            }
+        } else if (intersection.classList.contains('white-stone')) {
+            intersection.classList.toggle('white-stone');
+            if (isStarPoint) {
+                intersection.innerHTML = 'o';
+            } else {
+                intersection.innerHTML = '+';
+            }
+        } else if (intersection.classList.contains('black-stone')) {
+            intersection.classList.toggle('black-stone');
+            if (isStarPoint) {
+                intersection.innerHTML = 'o';
+            } else {
+                intersection.innerHTML = '+';
+            }
+        }
     });
 }
 
-const placeStone = (color) => {
-    // TODO
-    if (color === 0) {
-        // Do something
-        color++;
-    } else {
-        // Do something
-        color--;
-    }
-}
-
-
-const handleClick = () => {
-    alert("You clicked me!");
-}

@@ -6,14 +6,19 @@ table {
     width:50%;
 }
 
-tr {
-    /* margin: 5px 5px 5px 5px; */
-    /* background-color: white; */
-}
-
 td {
     text-align: center;
-    /* border: 1px solid red; */
-    /* padding-right: 10px; */
     padding: 10px 0px;
+}
+
+.black-stone {
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.white-stone {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 50%;
 }
