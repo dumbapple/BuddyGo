@@ -15,5 +15,5 @@ const io = socket(server);
 
 // socket is unique between particular client and the server
 io.on('connection', (socket) => { // runs callback on connection
-    console.log('Made socket connection!');
+    console.log('Made socket connection!', socket.id);
 });
